@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:mtg="http://www.gatherthemagic.be/magicthegathering"
+           elementFormDefault="qualified">
+    
+    <complexType name="Artist">
+        <element name="name">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"/>
+                </restriction>
+            </simpleType>
+        </element>/>
+    </complexType>
+    
+    <complexType name="Card">
+        <element name="colors" type="mtg:Colors"/>
+        <element name="artist" type="mtg:Artist"/>
+    </complexType>
+    
+    <complexType name="Cards">
+            <element name="card" type="mtg:Card" maxOccurs="unbounded"/>
+    </complexType>
+
+    <element name="cards" type="mtg:Cards"/>
+</xs:schema>
